@@ -10,7 +10,7 @@ sudo git clone https://github.com/alifa2try/mail-hunter.git
 
 cd mail-hunter
 
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 
 ```
 
