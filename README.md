@@ -10,7 +10,7 @@ sudo git clone https://github.com/alifa2try/mail-hunter.git
 
 cd mail-hunter
 
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 
 ```
 
@@ -37,3 +37,7 @@ LinkedIn: [Visit Profile](https://www.linkedin.com/in/2faisalgama/ "LinkedIn")
 YouTube: [Visit Channel](https://www.youtube.com/channel/UCYRIwpAwEbY9hFw7iet05kQ?view_as=subscriber&pbjreload=10 "YouTube")
 
 ![Faisal Logo](https://faisalgama.com/wp-content/uploads/cropped-Faisal_Gama_Logo-110x131.png "Faisal Gama Logo")
+
+## Disclaimer
+
+The use of this tool is your responsability. I hereby disclaim any responsibility for actions taken with this tool.
