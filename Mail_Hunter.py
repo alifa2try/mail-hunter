@@ -21,7 +21,7 @@ Yellow = Fore.YELLOW
 Reset = Fore.RESET
 Red = Fore.RED
 Green = Fore.GREEN
-
+Blue = Fore.BLUE
 
 def display_banner():
 	
@@ -148,8 +148,8 @@ try:
 	xlsx_file_name = domain + ".xlsx"
 	target_url = "https://" + domain
 	crawl(target_url)
-	print(f"{Green}\n[+] Finished hunting down e-mails and now exiting ...")
-	print(f"[+] A total of {mails_counter} mails were hunted down.{Reset}")
+	print(f"\n{Green}[+] Finished hunting down e-mails and now exiting ...{Reset}")
+	print(f"\n{Green}[+] A total of {mails_counter} mails were hunted down.{Reset}")
 except KeyboardInterrupt:
-	print(f"\n{Red}[+] Detected CTRL + C .... Now halting the program{Reset}")
-	print(f"[+] A total of {mails_counter} mails were hunted down.{Reset}")				
+	print(f"\n{Blue}[+] Detected CTRL + C .... Now halting the program{Reset}")
+	print(f"\n{Green}[+] A total of {mails_counter} mails were hunted down.{Reset}")				
