@@ -93,7 +93,8 @@ def crawl(url):
 						if mail not in mail_list:
 							mail_list.append(mail)
 							print(f"{Green}[+] Found an e-mail: {mail}{Reset}")	
-					
+							global mails_counter
+							mails_counter += 1
 					crawl(link)	
 	except TypeError:
 		pass 
@@ -104,7 +105,13 @@ def crawl(url):
 def export_results(emails):
 	global xlsx_file_name
 	global export_mails_list
-	export_mails_list += emails
+	global domain
+
+	csv_sheet_header = "Mails found on " + domain
+	
+	for mail in emails:
+		if mail not in export_mails_list:
+			export_mails_list.append(mail)
 
 
 	# Start from the first cell. Rows and columns are zero indexed.
@@ -112,21 +119,20 @@ def export_results(emails):
 	col = 0
 	i = 0
 	try:
-		#print(f"\n\n{Green}[+] Now exporting the results to an excel file{Reset}")
-		# Create a workbook and add a worksheet.
-		workbook = xlsxwriter.Workbook(xlsx_file_name)
-		worksheet = workbook.add_worksheet()
-		worksheet.write(row, col, "email")
-		row += 1
-		# Iterate over the data and write it out row by row.
-		for email in export_mails_list:
-				col = 0
-				worksheet.write(row, col, email)
-				row += 1
-				i += 1
+		if len(export_mails_list) != 0:
+			workbook = xlsxwriter.Workbook(xlsx_file_name)
+			worksheet = workbook.add_worksheet()
+			worksheet.write(row, col, csv_sheet_header)
+			row += 1
+			# Iterate over the data and write it out row by row.
+			for email in export_mails_list:
+					col = 0
+					worksheet.write(row, col, email)
+					row += 1
+					i += 1
 
-		#Close the excel
-		workbook.close()
+			#Close the excel
+			workbook.close()
 
 	except Exception as e:
 		print(f"{Red}[-]Error in export_results {e}{Reset}")
@@ -136,11 +142,14 @@ try:
 	target_links = []
 	mail_list = []
 	export_mails_list = []
+	mails_counter = 0
 
 	domain = get_argument()
 	xlsx_file_name = domain + ".xlsx"
 	target_url = "https://" + domain
 	crawl(target_url)
-	print(f"{Green}\n[+] Finished hunting down e-mails and now exiting ...{Reset}")
+	print(f"{Green}\n[+] Finished hunting down e-mails and now exiting ...")
+	print(f"[+] A total of {mails_counter} mails were hunted down.{Reset}")
 except KeyboardInterrupt:
-	print(f"\n{Red}[+] Detected CTRL + C .... Now halting the program{Reset}")				
+	print(f"\n{Red}[+] Detected CTRL + C .... Now halting the program{Reset}")
+	print(f"[+] A total of {mails_counter} mails were hunted down.{Reset}")				
