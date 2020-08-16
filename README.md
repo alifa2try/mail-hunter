@@ -21,6 +21,10 @@ pip install -r requirements.txt
 sudo python3 Mail_Hunter.py domain
 ```
 
+## Video Demonstration
+https://www.youtube.com/watch?v=stPrhHzBg7c&t=5s
+
+
 
 ## Author
 
