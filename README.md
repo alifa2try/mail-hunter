@@ -18,7 +18,7 @@ pip install -r requirements.txt
 
 ## Usage
 ```python
-sudo python3 Mail_Hunter.py domain
+sudo python3 mail_hunter.py domain
 ```
 
 ## Video Demonstration
